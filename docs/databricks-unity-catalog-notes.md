@@ -112,3 +112,40 @@ This notebook **should be exactly what you ran**, with minimal markdown commenta
 This notebook downloads Azure Compute documentation from GitHub,
 cleans Markdown content, and writes the data into a Unity Catalog–managed
 Delta table.
+
+
+
+┌──────────────────────────────┐
+│        Databricks UI         │
+└─────────────┬────────────────┘
+              │
+      (Spark jobs)
+              │
+┌─────────────▼───────────────┐
+│     Compute (clusters)       │  ← 1–N VMs
+│  - Ephemeral                 │
+│  - Replaceable               │
+│  - Stateless                 │
+└─────────────┬───────────────┘
+              │
+              ▼
+┌──────────────────────────────┐
+│   Persistent Cloud Storage   │
+│  (ADLS / S3 / GCS)           │
+│  - Delta tables              │
+│  - _delta_log                │
+│  - Unity Catalog managed     │
+└──────────────────────────────┘
+
+Azure Subscription
+ └─ Azure Databricks Workspace
+     ├─ Unity Catalog Metastore
+     │   ├─ Catalogs
+     │   │   ├─ Schemas
+     │   │   │   └─ Tables (Delta)
+     │   │   └─ ...
+     │   └─ Managed Storage (ADLS Gen2)
+     └─ Compute (Clusters, ephemeral)
+
+• Catalog + storage are bound to the workspace/metastore
+• Clusters are ephemeral and disposable

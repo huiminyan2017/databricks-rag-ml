@@ -7,43 +7,43 @@ It demonstrates how to build a production-style RAG pipeline with ingestion, chu
 ### Motivation
 
 Large Language Models (LLMs) hallucinate when asked about specialized or enterprise-specific knowledge such as:
-	•	Cloud infrastructure details
-	•	Internal documentation
-	•	Configuration guides
-	•	Platform-specific behaviors
+- Cloud infrastructure details
+- Internal documentation
+- Configuration guides
+- Platform-specific behaviors
 
 This system mitigates hallucinations by:
-	1.	Retrieving relevant documentation chunks
-	2.	Injecting them into the prompt
-	3.	Forcing the model to ground its answer in retrieved content
-	4.	Logging and evaluating answer quality
+1.	Retrieving relevant documentation chunks
+2.	Injecting them into the prompt
+3.	Forcing the model to ground its answer in retrieved content
+4.	Logging and evaluating answer quality
 
 ### Tech Stack
 
 Data & Compute
-	•	Databricks
-	•	Apache Spark
-	•	Delta Lake
-	•	Unity Catalog
+- Databricks
+- Apache Spark
+- Delta Lake
+- Unity Catalog
 
 LLM & Embeddings
-	•	Azure OpenAI (chat + embeddings)
+- Azure OpenAI (chat + embeddings)
 
 Retrieval
-	•	Brute-force cosine similarity (Option A)
-	•	Databricks Vector Search (Option B)
+- Brute-force cosine similarity (Option A)
+- Databricks Vector Search (Option B)
 
 Evaluation & Observability
-	•	LLM-as-judge
-	•	Structured logging
-	•	Delta-based metrics tables
+- LLM-as-judge
+- Structured logging
+- Delta-based metrics tables
 
 ### Data
-	•	Source: Azure Compute documentation (Markdown from GitHub)
-	•	Format: Raw .md files → cleaned text → chunked → embedded
-	•	Size:
-	    - ~XXX documents (TODO update)
-	    - ~XXX chunks (TODO update)
+- Source: Azure Compute documentation (Markdown from GitHub)
+- Format: Raw .md files → cleaned text → chunked → embedded
+- Size:
+  - ~XXX documents (TODO update)
+  - ~XXX chunks (TODO update)
 
 ### Architecture
 User Query
@@ -79,37 +79,37 @@ Logging + Evaluation (Delta Tables)
 99_cleanup_environment.ipynb   # Environment reset
 
 ### Features
-	•	Deterministic chunk IDs
-	•	Category-balanced sampling
-	•	Stable embeddings
-	•	Dual retrieval backends (A/B)
-	•	Full query logging
-	•	Automated evaluation
-	•	Schema-safe Delta writes
-	•	Unity Catalog governance
-	•	Reproducible pipelines
+- Deterministic chunk IDs
+- Category-balanced sampling
+- Stable embeddings
+- Dual retrieval backends (A/B)
+- Full query logging
+- Automated evaluation
+- Schema-safe Delta writes
+- Unity Catalog governance
+- Reproducible pipelines
 
 ### Status
-	•	Data ingestion
-	•	Chunking
-	•	Embeddings
-	•	Retrieval
-	•	RAG inference
-	•	Logging
-	•	Evaluation
-	•	Demo UI
-	•	MLflow integration (optional)
-	•	Serving endpoint (optional)
+- Data ingestion
+- Chunking
+- Embeddings
+- Retrieval
+- RAG inference
+- Logging
+- Evaluation
+- Demo UI
+- MLflow integration (optional)
+- Serving endpoint (optional)
 
 ### Prerequisites
 
 Azure
-    You need:
-	1.	Azure OpenAI resource
-	2.	Databricks workspace (Premium tier for Unity Catalog)
-	3.	Deployed Azure OpenAI models:
-	    •	Chat model (e.g. gpt-4o-mini)
-	    •	Embedding model (e.g. text-embedding-3-small)
+You need:
+1. Azure OpenAI resource
+2. Databricks workspace (Premium tier for Unity Catalog)
+3. Deployed Azure OpenAI models:
+    - Chat model (e.g. gpt-4o-mini)
+    - Embedding model (e.g. text-embedding-3-small)
 
 Environment Variables
 
@@ -121,15 +121,14 @@ Environment Variables
         AZURE_OPENAI_EMBEDDING_DEPLOYMENT=
 
 ### How to Run
-
-    Run notebooks in order:
-        1.	01_ingest.ipynb
-        2.	02_chunk.ipynb
-        3.	03_embed.ipynb
-        4.	04_retrieve_and_generate.ipynb
-        5.	05_rag_logging.ipynb
-        6.	06_rag_evaluation.ipynb
-        7.	07_serving_and_demo.ipynb
+Run notebooks in order:
+1. 01_ingest.ipynb
+2. 02_chunk.ipynb
+3. 03_embed.ipynb
+4. 04_retrieve_and_generate.ipynb
+5. 05_rag_logging.ipynb
+6. 06_rag_evaluation.ipynb
+7. 07_serving_and_demo.ipynb
 
 ### Demo Script
 
@@ -172,25 +171,25 @@ Environment Variables
 Query Logs
 
 Tracks:
-	•	Question
-	•	Retrieved chunks
-	•	Prompt
-	•	Answer
-	•	Models used
-	•	Timestamp
+- Question
+- Retrieved chunks
+- Prompt
+- Answer
+- Models used
+- Timestamp
 
 Evaluation Table
 
 Scores:
-	•	Retrieval relevance
-	•	Answer relevance
-	•	Faithfulness
+- Retrieval relevance
+- Answer relevance
+- Faithfulness
 
 This enables:
-	•	Regression detection
-	•	Prompt iteration
-	•	Retriever comparison
-	•	Hallucination analysis
+- Regression detection
+- Prompt iteration
+- Retriever comparison
+- Hallucination analysis
 
 ### Cleanup
 
@@ -199,10 +198,10 @@ To reset the environment:
 Drops all tables and deletes local temp data.
 
 ### Future Improvements
-	•	Add retriever type (A/B) to logs
-	•	Add latency metrics
-	•	Add MLflow experiment tracking
-	•	Add feedback loop
-	•	Add reranking
-	•	Add hybrid search
-	•	Add REST API
+- Add retriever type (A/B) to logs
+- Add latency metrics
+- Add MLflow experiment tracking
+- Add feedback loop
+- Add reranking
+- Add hybrid search
+- Add REST API

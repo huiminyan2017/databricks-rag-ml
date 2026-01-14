@@ -100,17 +100,17 @@ SHOW CATALOGS;
 ```
 
 Observed catalogs:
-	•	databricks_rag_demo
-	•	samples
-	•	system
+- databricks_rag_demo
+- samples
+- system
 
 ```sql
 SHOW SCHEMAS IN databricks_rag_demo;
 ```
 
 Observed schemas:
-	•	default
-	•	information_schema
+- default
+- information_schema
 
 This confirms Unity Catalog is active and the metastore is attached.
 

@@ -116,6 +116,7 @@ This confirms Unity Catalog is active and the metastore is attached.
 
 ### Databricks Architecture
 
+```text
 ┌──────────────────────────────┐
 │        Databricks UI         │
 └─────────────┬────────────────┘
@@ -137,7 +138,9 @@ This confirms Unity Catalog is active and the metastore is attached.
 │      - _delta_log            │
 │      - Unity Catalog managed │
 └──────────────────────────────┘
+```
 
+```text
 Azure Subscription
  └─ Azure Databricks Workspace
      ├─ Unity Catalog Metastore
@@ -147,9 +150,10 @@ Azure Subscription
      │   │   └─ ...
      │   └─ Managed Storage (ADLS Gen2)
      └─ Compute (Clusters, ephemeral)
+```
 
 Key Design Principles
-	•	Storage is persistent
-	•	Compute is disposable
-	•	Governance is centralized
-	•	Tables are objects, not files
+- Storage is persistent
+- Compute is stateless and disposable
+- Governance is centralized
+- Tables are objects, not files

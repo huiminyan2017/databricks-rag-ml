@@ -63,20 +63,21 @@ Answer
 Logging + Evaluation (Delta Tables)
 
 ### Project Structure
-00_constants.ipynb             # Centralized table names, config
-00_utils.ipynb                 # Reusable functions (retrieval, logging, eval, etc.)
-00_init_openai_client.ipynb    # Azure OpenAI initialization
+00_install_deps_and_restart.ipynb  # Install dependent packages and restart kernel
+00_constants.ipynb                 # Centralized table names, config
+00_utils.ipynb                     # Reusable functions (retrieval, logging, eval, etc.)
+00_init_openai_client.ipynb        # Azure OpenAI initialization
 
-01_ingest.ipynb                # Data ingestion
-02_chunk.ipynb                 # Chunking
-03_embed.ipynb                 # Embeddings
-04_retrieve_and_generate.ipynb # Retrieve and LLM inference
+01_ingest.ipynb                    # Data ingestion
+02_chunk.ipynb                     # Chunking
+03_embed.ipynb                     # Embeddings
+04_retrieve_and_generate.ipynb     # Retrieve and LLM inference
 
-05_rag_logging.ipynb           # Logging schema + demo
-06_rag_evaluation.ipynb        # Evaluation schema + demo
-07_serving_and_demo.ipynb      # Unified pipeline + UI
+05_rag_logging.ipynb               # Logging schema + demo
+06_rag_evaluation.ipynb            # Evaluation schema + demo
+07_serving_and_demo.ipynb          # Demo + UI
 
-99_cleanup_environment.ipynb   # Environment reset
+99_cleanup_environment.ipynb       # Environment reset
 
 ### Features
 - Deterministic chunk IDs
@@ -104,21 +105,17 @@ Logging + Evaluation (Delta Tables)
 ### Prerequisites
 
 Azure
-You need:
+You need to create below resources in Azure portal:
 1. Azure OpenAI resource
 2. Databricks workspace (Premium tier for Unity Catalog)
-3. Deployed Azure OpenAI models:
+3. Deployed Azure OpenAI models by naviagting to Azure Foundry portal:
     - Chat model (e.g. gpt-4o-mini)
     - Embedding model (e.g. text-embedding-3-small)
+    change 00_constants.ipynb if the model deployment name is not above
 
-Environment Variables
-
-    Set these in Databricks secrets or environment:
-        AZURE_OPENAI_API_KEY=
-        AZURE_OPENAI_ENDPOINT=
-        AZURE_OPENAI_API_VERSION=
-        AZURE_OPENAI_CHAT_DEPLOYMENT=
-        AZURE_OPENAI_EMBEDDING_DEPLOYMENT=
+Secrets: (see 00_init_openai-client.ipynb)
+    AZURE_OPENAI_API_KEY=
+    AZURE_OPENAI_ENDPOINT=
 
 ### How to Run
 Run notebooks in order:
@@ -126,8 +123,8 @@ Run notebooks in order:
 2. 02_chunk.ipynb
 3. 03_embed.ipynb
 4. 04_retrieve_and_generate.ipynb
-5. 05_rag_logging.ipynb
-6. 06_rag_evaluation.ipynb
+5. (optional) 05_rag_logging.ipynb
+6. (optional) 06_rag_evaluation.ipynb
 7. 07_serving_and_demo.ipynb
 
 ### Demo Script

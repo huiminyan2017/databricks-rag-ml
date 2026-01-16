@@ -17,10 +17,10 @@ In practical terms, it replaces three legacy mechanisms at once:
 You can think of Unity Catalog as the control plane for all data and AI assets in Databricks.
 
 With Unity Catalog:
-	•	Users stop thinking in filesystem paths
-	•	Data is addressed by governed names
-	•	Permissions are centrally enforced
-	•	Lineage and auditing become first-class
+- Users stop thinking in filesystem paths
+- Data is addressed by governed names
+- Permissions are centrally enforced
+- Lineage and auditing become first-class
 Instead of paths like: /mnt/mybucket/data/foo You work with: catalog.schema.table
 
 ### Object Model: catalog → schema → table
